@@ -5,9 +5,7 @@ node {
         }
 
         stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
+            sh 'mvn test'
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
@@ -16,9 +14,7 @@ node {
         }
 
         stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
+            sh './jenkins/scripts/deliver.sh'
         }
     }
 }
